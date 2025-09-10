@@ -1,0 +1,170 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Button with hover transition */
+.btn {
+  background: #4CAF50;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  background: #45a049;
+  transform: scale(1.1);
+}
+
+/* Fade-in text */
+.fade-text {
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.fade-text.show {
+  opacity: 1;
+}
+
+/* Sliding box animation */
+.box {
+  width: 100px;
+  height: 100px;
+  background: #2196F3;
+  margin-top: 30px;
+  animation: slide 4s infinite alternate;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(200px);
+  }
+}
+
+/* Spinning loader */
+.loader {
+  margin-top: 40px;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #ff5722;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* Add this to styles.css */
+
+.box.move {
+  animation: slide 2s forwards;
+}
+
+/* @keyframes slide already defined from previous example */
+
+
+/* Card container */
+.card {
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 20px;
+}
+
+/* Inner part that flips */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back faces */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 10px;
+}
+
+.card-front {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.card-back {
+  background-color: #FF5722;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal.show {
+  display: flex;
+  animation: fadeIn 0.5s forwards;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  transform: translateY(-50px);
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+
